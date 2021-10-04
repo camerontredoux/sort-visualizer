@@ -13,7 +13,6 @@ async function bubbleSort(items) {
     }
     items[items.length - i - 1].style.backgroundColor = "blue"
   }
-  console.log(items);
 }
 
 function swap(a, b, list) {
@@ -22,11 +21,6 @@ function swap(a, b, list) {
   list[b].style.height = `${temp}px`
   list[b].style.backgroundColor = "green"
 }
-
-let items = document.querySelectorAll("[id^='item-']")
-items.forEach(item => {
-  console.log(item);
-})
 
 function generate(values) {
   items.forEach(item => {
@@ -37,12 +31,15 @@ function generate(values) {
   })
 }
 
-console.log(items);
-
-generate(100)
+let items = document.querySelectorAll("[id^='item-']")
 
 let genBtn = document.getElementById("generateBtn")
+let sortBtn = document.getElementById("sortBtn")
 
+genBtn.addEventListener("click", () => {
+  generate(100)
+})
 
-
-bubbleSort(items)
+sortBtn.addEventListener("click", () => {
+  bubbleSort(items)
+})
