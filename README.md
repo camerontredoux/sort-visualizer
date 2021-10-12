@@ -1,5 +1,5 @@
-# Sorting Visualizer
-<p align="center">Visualizing various sorting algorithms for my CS 191 (Introduction to C++) tutoring sessions</p>
+<p align="center"># Sorting Visualizer
+Visualizing various sorting algorithms for my CS 191 (Introduction to C++) tutoring sessions</p>
 
 <p align="center">
 <img src="https://imgur.com/oNRybdz.gif" width="300">
