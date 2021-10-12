@@ -1,9 +1,10 @@
+let speed = document.getElementById("speed")
+
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
 
 async function bubbleSort(items) {
-  let speed = document.getElementById("speed")
   let sleep_ms = speed.value
   for (let i = 0; i < items.length; i++) {
     for (let j = 0; j < items.length - i - 1; j++) {
@@ -25,21 +26,26 @@ function render(items, i, color) {
 async function swap(a, b, list, sleep_ms) {
   render(list, a, "purple")
   render(list, b, "purple")
-  await sleep(sleep_ms)
+  if (checkbox.checked) {
+    await sleep(sleep_ms)
+  }
   let temp = list[a].offsetHeight
   list[a].style.height = `${list[b].offsetHeight}px`
   list[b].style.height = `${temp}px`
-  await sleep(sleep_ms)
+  if (checkbox.checked) {
+    await sleep(sleep_ms)
+  }
 }
 
-let itemsId = document.getElementById("items")
+const itemsId = document.getElementById("items")
+const checkbox = document.getElementById("show-steps")
 
-let genBtn = document.getElementById("generateBtn")
-let sortBtn = document.getElementById("sortBtn")
-let amount = document.getElementById("amount")
+const genBtn = document.getElementById("generateBtn")
+const sortBtn = document.getElementById("sortBtn")
+const amount = document.getElementById("amount")
 let items
 
-genBtn.addEventListener("click", () => {
+function generate() {
   while (itemsId.lastElementChild) {
     itemsId.removeChild(itemsId.lastElementChild)
   }
@@ -49,9 +55,19 @@ genBtn.addEventListener("click", () => {
   }
   items = itemsId.querySelectorAll("[id^='item-']")
   items.forEach(item => {
-    let random = (Math.random() * 200) + 10
+    let random = Math.floor(Math.random() * 490) + 10
     item.style.height = `${random}px`
   })
+}
+
+amount.addEventListener("keyup", (e) => {
+  if (e.key === "Enter") {
+    generate()
+  }
+})
+
+genBtn.addEventListener("click", () => {
+  generate()
 })
 
 
