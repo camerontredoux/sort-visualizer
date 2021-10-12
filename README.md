@@ -1,4 +1,4 @@
 # Sorting Visualizer
 Visualizing various sorting algorithms for my CS 191 (Introduction to C++) tutoring sessions
 
-![Imgur](https://imgur.com/oNRybdz.gif)
+![Imgur](https://imgur.com/oNRybdz.gif =100x)
